@@ -4,7 +4,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![](https://user-images.githubusercontent.com/3822716/146215490-9b6674d8-6472-4fb4-bb26-722e8b5272ae.jpeg)
+![](https://user-images.githubusercontent.com/3822716/146291203-185a93ad-ef9c-481a-99c7-ef001da378a4.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML playbook files to only install certain pieces of it, such as skipping python if already installed or not executing metricbeat-playbook.yml 
 
@@ -39,7 +39,7 @@ The configuration details of each machine may be found below.
 | Jump Box | Gateway | 10.0.0.4 | Ubuntu 18 |
 | ELK | ELK Server | 10.1.0.4 | Ubuntu 18 |
 | WEB-1 | DVWA Web Server | 10.0.0.5 | Ubuntu 18 |
-| WEB-2  | DVWA Web Server | 10.0.0.6 | Ubuntu 18 |
+| WEB-2 | DVWA Web Server | 10.0.0.6 | Ubuntu 18 |
 | WEB-3 | DVWA Web Server | 10.0.0.7 | Ubuntu 18 |
 
 ### Access Policies
@@ -50,7 +50,7 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 
 Machines within the network can only be accessed by Jump Box .
 
-*   The Jumpbox machine is allowed access to the ELK VM. 
+*   The Jumpbox machine is allowed access to the ELK VM.
     *   10.0.0.4 : SSH (port 22)
     *   Public IP of Admin ( port 5601 )
 
