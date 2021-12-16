@@ -40,7 +40,6 @@ The configuration details of each machine may be found below.
 | ELK | ELK Server | 10.1.0.4 | Ubuntu 18 |
 | WEB-1 | DVWA Web Server | 10.0.0.5 | Ubuntu 18 |
 | WEB-2 | DVWA Web Server | 10.0.0.6 | Ubuntu 18 |
-| WEB-3 | DVWA Web Server | 10.0.0.7 | Ubuntu 18 |
 
 ### Access Policies
 
@@ -76,27 +75,28 @@ Ansible was used to automate configuration of the ELK Server setup. No configura
 
 The playbook implements the following tasks:
 
-*   _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-*   ...
-*   ...
-
-The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
-
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+*   Install Docker.io
+*   Install Python3-pip
+*   Install docker module
+*   Increase & use more virtual memory
+*   Download and launch the Docker ELK container
 
 ### Target Machines & Beats
 
 This ELK server is configured to monitor the following machines:
 
-*   _TODO: List the IP addresses of the machines you are monitoring_
+*   10.0.0.5 ( Web-1) : DVWA 
+*   10.0.0.6 ( Web-2) : DVWA
 
 We have installed the following Beats on these machines:
 
-*   _TODO: Specify which Beats you successfully installed_
+*   filebeat-7.6.1-amd64.deb
+*   metricbeat-7.6.1-amd64.deb
 
 These Beats allow us to collect the following information from each machine:
 
-*   _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+*   Filebeat helps to collect Apache logs and it also indicates information that has been modified and when the modification took place
+*   Metricbeat Metricbeat watches for change in system metrics such as change in CPU usage,SSH login attempts, and RAM statistics.
 
 ### Using the Playbook
 
@@ -104,14 +104,28 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 
-*   Copy the **\_ file to \_**.
-*   Update the \_\_\_\_\_ file to include...
-*   Run the playbook, and navigate to \_\_\_\_ to check that the installation worked as expected.
+*   Copy the [install-elk.yml](https://github.com/PraveenMuramalla/ELK-STACK/blob/main/Ansible/install-elk.yml) to /etc/ansible.
+*   Update the hosts file to include the Elk-VM IP under \[elk\].
+*   Run the playbook install-elk.yml, and navigate to [http://\<public ip of elk>:5601/app/kibana](http://52.161.65.211:5601/app/kibana) to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
+The playbook files are:
 
-*   _Which file is the playbook? Where do you copy it?_
-*   _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-*   \_Which URL do you navigate to in order to check that the ELK server is running?
+*   [install-elk.yml](https://github.com/PraveenMuramalla/ELK-STACK/blob/main/Ansible/install-elk.yml) - Install ELK Server
+*   [filebeat-playbook.yml](https://github.com/PraveenMuramalla/ELK-STACK/blob/main/Ansible/filebeat-playbook.yml) - Install and configure Filebeat on Elk Server and DVWA servers
+*   [metricbeat-playbook.yml](https://github.com/PraveenMuramalla/ELK-STACK/blob/main/Ansible/metricbeat-playbook.yml) - Install and configure Metricbeat on Elk Server and DVWA servers
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+Where do you copy it?
+
+*   /etc/ansible/
+
+Update to make Ansible run the playbook on a specific machine?
+
+*   /etc/ansible/hosts
+
+Specify which machine to install the ELK server , Filebeat and MetricBeaton?
+
+In /etc/ansible/hosts configure IP Address for ElkServers ( elk ) or FileBeat (webservers)
+
+Which URL do you navigate to in order to check that the ELK server is running?
+
+http://\<public ip of elk>:5601
