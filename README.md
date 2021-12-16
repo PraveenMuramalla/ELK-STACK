@@ -8,9 +8,9 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML playbook files to only install certain pieces of it, such as skipping python if already installed or not executing metricbeat-playbook.yml 
 
-*   elk-install\_playbook.yml
-*   filebeat-playbook.yml
-*   metricbeat-playbook.yml
+*   [install-elk.yml](https://github.com/PraveenMuramalla/ELK-STACK/blob/main/Ansible/install-elk.yml)
+*   [filebeat-playbook.yml](https://github.com/PraveenMuramalla/ELK-STACK/blob/main/Ansible/filebeat-playbook.yml)
+*   [metricbeat-playbook.yml](https://github.com/PraveenMuramalla/ELK-STACK/blob/main/Ansible/metricbeat-playbook.yml)
 
 This document contains the following details:
 
@@ -85,7 +85,7 @@ The playbook implements the following tasks:
 
 This ELK server is configured to monitor the following machines:
 
-*   10.0.0.5 ( Web-1) : DVWA 
+*   10.0.0.5 ( Web-1) : DVWA
 *   10.0.0.6 ( Web-2) : DVWA
 
 We have installed the following Beats on these machines:
@@ -120,7 +120,7 @@ Where do you copy it?
 
 Update to make Ansible run the playbook on a specific machine?
 
-*   /etc/ansible/hosts
+*   /etc/ansible/hosts to configure \[webservers\] and \[elk\] with ip addresses of the machines
 
 Specify which machine to install the ELK server , Filebeat and MetricBeaton?
 
