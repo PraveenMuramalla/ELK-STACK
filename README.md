@@ -4,7 +4,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![](https://user-images.githubusercontent.com/3822716/146646065-3c0d78ae-d27c-45aa-a189-96c6e9c8dd48.png)
+![](https://user-images.githubusercontent.com/3822716/146646245-445c7151-8a13-42c4-ba92-53b8b4fee696.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML playbook files to only install certain pieces of it, such as skipping python if already installed or not executing metricbeat-playbook.yml 
 
